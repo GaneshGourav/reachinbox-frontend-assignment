@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.App-header {
+  background-color: #000;
+  min-height: 100vh;
+
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.main-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main {
+  position: relative;
+
+  width: 100%;
+  height: calc(100vh - 80px);
+}
+.btn {
+  background: linear-gradient(to left, #0000ff 9%, #3399ff 100%);
+}
+.index-page-height{
+  height: calc(100vh - 70px);
+ 
+ 
+}
+.right-side::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.right-side {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.vertical-line {
+  border: none;
+  background-color: #23272C; /* Adjust color as needed */
+  width: 2px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+}
