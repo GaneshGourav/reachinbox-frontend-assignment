@@ -7,11 +7,25 @@ import emailStore from "../assests/email store.svg";
 import chart from "../assests/bar_chart.svg";
 import send from "../assests/send.svg";
 import { Link } from "react-router-dom";
-import Home from "./Home";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useContext, useState } from "react";
+import { themeContext } from "../context";
+
 const Sidebar = () => {
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
+  const { user } = useAuth0();
+  const { logout } = useAuth0();
+  const [show, setShow] = useState(false);
+  const handleShow = () => {
+    setShow(!show);
+  };
   return (
     <div className="flex">
-      <main className="h-[100vh] w-14 p-3   bg-[#101113]">
+      <main
+        className="h-[100vh] w-14 p-3   bg-[#101113]"
+        style={{ background: darkMode ? "white" : "#101113" }}
+      >
         <div className=" pb-5  h-[50px] flex items-center justify-center">
           <div>
             <img src={logo} alt="logo" className=" object-cover" />
@@ -20,24 +34,44 @@ const Sidebar = () => {
 
         <div className=" pt-10 h-[600px]">
           <div className="flex items-center justify-start flex-col gap-7  h-[500px]">
-            <Link to="/logged-page">  <img src={home} alt="home logo" /></Link>
-          
+            <Link to="/">
+              {" "}
+              <img src={home} alt="home logo" />
+            </Link>
+
             <img src={contact} alt="contact-logo" />
             <img src={email} alt="email-logo" />
             <img src={send} alt="send-logo" />
-            <Link to="/onebox"><img src={menu} alt="menu-logo" /></Link>
-            
+            <img src={menu} alt="menu-logo" />
+            <Link to="/onebox">
             <img src={emailStore} alt="email-store-logo" />
-            <img src={chart} alt="chart-logo" />
+            </Link>
+ <img src={chart} alt="chart-logo" />
           </div>
         </div>
-<div className="mt-5  rounded-full  bg-[#054F31]">
-    <div className=" rounded-full   text-white flex items-center justify-center">
-        <p className="p-1">GS</p>
-    </div>
-</div>
+        <div className="mt-5  rounded-full  bg-[#054F31]">
+          <div
+            className=" rounded-full   text-white flex items-center justify-center relative cursor-pointer"
+            onClick={handleShow}
+          >
+            <p className="p-1">{user.name.split(" ").map((word) => word[0])}</p>
+            {show && (
+              <div className="absolute border-[#4f4f51] border h-[100px] w-[100px] -top-[100px] left-[48px] rounded-lg ">
+                <button
+                  className="border-[#4f4f51] border-2 pr-3 pl-3 pt-1 pb-1 rounded-lg bg-[#23272C] mt-10 "
+                  onClick={() =>
+                    logout({
+                      logoutParams: { returnTo: window.location.origin },
+                    })
+                  }
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       </main>
-     
     </div>
   );
 };
