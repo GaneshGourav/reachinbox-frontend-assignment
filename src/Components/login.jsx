@@ -4,6 +4,7 @@ import logo from "../assests/Logo.svg";
 import googleLogo from "../assests/google-logo.svg";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Login = () => {
         <div className="main relative bg-black">
           <div className="border main-content border-[#888a8e] w-[450px] rounded-2xl bg-[#111112] pt-5 pb-10 ">
             <p className="text-3xl pt-3">Create a new account</p>
+
             <button
               className="border border-[#888a8e] pt-3 pb-3 pr-24 pl-24 mt-10 rounded-md "
               onClick={() => loginWithRedirect()}
@@ -32,6 +34,7 @@ const Login = () => {
                 Sign Up with Google
               </div>
             </button>
+        
             <br />
             <button
               className="pt-3 pb-3 pr-8 pl-8 mt-10 rounded-lg btn"

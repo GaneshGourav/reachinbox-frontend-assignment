@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "../App.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
 import { IoMdFlash } from "react-icons/io";
 import { SlActionUndo } from "react-icons/sl";
@@ -10,29 +10,51 @@ import { themeContext } from "../context";
 const ThreadEmail = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
-  const [open, setOpen] = useState(false);
+  const [openEditor, setopenEditor] = useState(false);
   const [reply, setreply] = useState(false);
   const [alret, setAlert] = useState(false);
   const [ThreadId, setThreadId] = useState(null);
   const OpenEditor = () => {
-    setOpen(!open);
+    setopenEditor(!openEditor);
     setreply(!reply);
   };
   const closeEditor = () => {
-    setOpen(false);
+    setopenEditor(false);
   };
   const handleReply = () => {
     setreply(true);
   };
   const handleSendReply = () => {
     alert("reply sent");
-    setOpen(false);
+    setopenEditor(false);
   };
   const handleDelet = (el) => {
     setThreadId(el.threadId);
 
     setAlert(!alret);
   };
+
+  // keyboard events
+  useEffect(() => {
+    const handleKeyR = (event) => {
+      if (event.key === "R") {
+        setopenEditor(true);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyR);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyD = (event) => {
+      if (event.key === "D") {
+        setAlert(!alret);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyD);
+  }, []);
+
   const Tdata = useSelector((store) => store.reducer.threadData);
   return (
     <>
@@ -51,7 +73,7 @@ const ThreadEmail = () => {
             </button>
           )}
 
-          {open && (
+          {openEditor && (
             <div
               className={`text-sm fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-30 z-50`}
             >
@@ -111,7 +133,7 @@ const ThreadEmail = () => {
               style={{ color: darkMode ? "black" : "white" }}
               className="font-[600]"
             >
-              orland
+              orlando
             </p>
             <p className="text-[#4f4f51]">orlando@gmail.com</p>
           </div>

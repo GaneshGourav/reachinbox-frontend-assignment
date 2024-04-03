@@ -27,7 +27,7 @@ const LeadDetails = () => {
         <div className="text-white pr-3 mt-3 ">
           <div className="flex items-center justify-between text-[16px] mt-5">
             <p style={{ color: darkMode ? "#4f4f51" : "white" }}>Name</p>
-            <p style={{ color: darkMode ? "black" : "#B9B9B9" }}>Orland</p>
+            <p style={{ color: darkMode ? "black" : "#B9B9B9" }}>Orlando</p>
           </div>
           <div className="flex items-center justify-between mt-5">
             <p style={{ color: darkMode ? "#4f4f51" : "white" }}>Contact No</p>
@@ -35,7 +35,7 @@ const LeadDetails = () => {
               className="text-[#B9B9B9]"
               style={{ color: darkMode ? "black" : "#B9B9B9" }}
             >
-              +91 95720 16410
+              +54-9062827869
             </p>
           </div>
           <div className="flex items-center justify-between mt-5">
@@ -44,16 +44,16 @@ const LeadDetails = () => {
               className="text-[#B9B9B9]"
               style={{ color: darkMode ? "black" : "#B9B9B9" }}
             >
-              ganeshgourav@gmail.com
+              orlando@gmail.com
             </p>
           </div>
           <div className="flex items-center justify-between mt-5">
-            <p style={{ color: darkMode ? "#4f4f51" : "white" }}>Linkdein</p>
+            <p style={{ color: darkMode ? "#4f4f51" : "white" }}>Linkedin</p>
             <p
               className="text-[#B9B9B9]"
               style={{ color: darkMode ? "black" : "#B9B9B9" }}
             >
-              linkdein/ganesh/kumar
+              linkedin.com/in/timvadde
             </p>
           </div>
           <div className="flex items-center justify-between mt-5">
@@ -64,7 +64,7 @@ const LeadDetails = () => {
               className="text-[#B9B9B9]"
               style={{ color: darkMode ? "black" : "#B9B9B9" }}
             >
-              Richinbox
+              Reachinbox
             </p>
           </div>
         </div>

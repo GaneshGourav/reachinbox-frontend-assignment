@@ -85,17 +85,15 @@ const EmailList = () => {
             {maildata.map((el, index) => (
               <div
                 key={index}
-                className="border border-[#23272C] border-b-2 mb-5"
+                className="border border-[#23272C] border-b-2 mb-5 "
                 onClick={() => handleClick(el.threadId)}
               >
                 <div className="flex items-center justify-start gap-10 pl-3">
-                  <div className="w-[150px] text-start">
+                  <div className="w-[150px] flex item-center justify-start gap-4 text-start">
                     <p style={{ color: darkMode ? "black" : "white" }}>
                       {el.fromEmail}
                     </p>
-                  </div>
-                  <div>
-                    <p className="text-[#4f4f51]">Mar 7</p>
+                    <p className="text-[#4f4f51]">Mar7</p>
                   </div>
                 </div>
                 <div className="text-start gap-5 pl-3">

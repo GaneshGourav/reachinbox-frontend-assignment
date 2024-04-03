@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useContext, useState } from "react";
 import { themeContext } from "../context";
+import { FaInbox } from "react-icons/fa";
 
 const Sidebar = () => {
   const theme = useContext(themeContext);
@@ -44,9 +45,12 @@ const Sidebar = () => {
             <img src={send} alt="send-logo" />
             <img src={menu} alt="menu-logo" />
             <Link to="/onebox">
-            <img src={emailStore} alt="email-store-logo" />
+              {/* <img src={emailStore} alt="email-store-logo" /> */}
+              <span className="bg-white">
+                <FaInbox className="text-[#a2a2ac] text-[20px]" />
+              </span>
             </Link>
- <img src={chart} alt="chart-logo" />
+            <img src={chart} alt="chart-logo" />
           </div>
         </div>
         <div className="mt-5  rounded-full  bg-[#054F31]">
