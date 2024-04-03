@@ -1,4 +1,4 @@
-import Home from "../Components/navBar";
+
 import "../App.css";
 import { useContext } from "react";
 import { themeContext } from "../context";
@@ -14,8 +14,7 @@ const Onebox = () => {
     <>
       <div className="flex flex-col">
         <div>
-          {/* <Home /> */}
-          <Navbar/>
+          <Navbar />
         </div>
         <div
           style={{ background: darkMode ? "white" : "black" }}

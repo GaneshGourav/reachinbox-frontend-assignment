@@ -10,6 +10,7 @@ import { themeContext } from "../context";
 const ThreadEmail = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+  const [selectedItem, setSelectedItem] = useState(null);
   const [openEditor, setopenEditor] = useState(false);
   const [reply, setreply] = useState(false);
   const [alret, setAlert] = useState(false);
@@ -28,7 +29,7 @@ const ThreadEmail = () => {
     alert("reply sent");
     setopenEditor(false);
   };
-  const handleDelet = (el) => {
+  const handleDelete = (el) => {
     setThreadId(el.threadId);
 
     setAlert(!alret);
@@ -48,12 +49,15 @@ const ThreadEmail = () => {
   useEffect(() => {
     const handleKeyD = (event) => {
       if (event.key === "D") {
-        setAlert(!alret);
+        setAlert((a) => !a);
       }
     };
 
     document.addEventListener("keydown", handleKeyD);
   }, []);
+  const handleItemClick = (index) => {
+    setSelectedItem(index);
+  };
 
   const Tdata = useSelector((store) => store.reducer.threadData);
   return (
@@ -164,7 +168,7 @@ const ThreadEmail = () => {
         </nav>
 
         <div className=" right-side overflow-y-auto scrollbar-w-0 scrollbar-thumb-[black]">
-          {Tdata.map((el) => (
+          {Tdata.map((el, index) => (
             <div className="text-[#AEAEAE]">
               <div>
                 <div className="w-full border border-[#23272C]  mt-[30px] mb-[30px] relative">
@@ -173,14 +177,20 @@ const ThreadEmail = () => {
                   </div>
                 </div>
               </div>
-              <div className="border border-[#23272C] mt-5px pt-5 pb-5  w-[830px] m-auto ]">
+              <div
+                key={index}
+                className={`border border-[#23272C] mt-5px pt-5 pb-5  w-[830px] m-auto ${
+                  selectedItem === index ? "selected" : ""
+                } `}
+                onClick={() => handleItemClick(index)}
+              >
                 <div className="text-start pl-3">
                   <div className="flex items-center justify-between pr-3">
                     <p className="text-white font-[700]">{el.subject}</p>
                     <div
                       className="text-white  pr-2 pl-2 pt-1 pb-1 rounded-md bg-[#23272C] cursor-pointer"
                       style={{ background: darkMode ? "#77797a" : "#23272C" }}
-                      onClick={() => handleDelet(el)}
+                      onClick={() => handleDelete(el)}
                     >
                       Delete
                     </div>

@@ -21,7 +21,6 @@ export const Getallmails = (token) => (dispatch) => {
     })
     .then((res) => {
       dispatch({ type: LOGINSUCCESS, payload: res.data.data });
-      console.log(res.data, "Maildata");
     })
     .catch((err) => {
       console.log(err);
@@ -39,7 +38,6 @@ export const fetchThread = (id, token) => (dispatch) => {
     })
     .then((res) => {
       dispatch({ type: THREADIDSUCCESS, payload: res.data.data });
-      console.log(res.data);
     })
     .catch((err) => {
       dispatch({ type: THREADIDFAIL });

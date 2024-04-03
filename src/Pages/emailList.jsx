@@ -7,13 +7,12 @@ import "../App.css";
 const EmailList = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+  const [selectedItem, setSelectedItem] = useState(null);
   const dispatch = useDispatch();
   const maildata = useSelector((store) => store.reducer.data);
   const isLoading = useSelector((store) => store.reducer.loading);
-  const Tdata = useSelector((store) => store.reducer.threadData);
-  console.log(Tdata, "Thread");
   const [threadId, setThreadId] = useState(null);
-  console.log(maildata, "emaillist");
+
   let token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoibXJnYW5lc2hvZmZpY2lhbDhAZ21haWwuY29tIiwiaWQiOjU1LCJmaXJzdE5hbWUiOiJHYW5lc2giLCJsYXN0TmFtZSI6Ikt1bWFyIn0sImlhdCI6MTcxMTk1OTAwNiwiZXhwIjoxNzQzNDk1MDA2fQ.RMcMqcxzufrlKLpJgaLZNxSD431h8zdfV32olgDjL4U";
   useEffect(() => {
@@ -28,6 +27,9 @@ const EmailList = () => {
 
   const handleClick = (el) => {
     setThreadId(el);
+  };
+  const handleItemClick = (index) => {
+    setSelectedItem(index);
   };
 
   return (
@@ -85,44 +87,48 @@ const EmailList = () => {
             {maildata.map((el, index) => (
               <div
                 key={index}
-                className="border border-[#23272C] border-b-2 mb-5 "
-                onClick={() => handleClick(el.threadId)}
+                className={`border border-[#23272C] border-b-2 mb-5   ${
+                  selectedItem === index ? "selected" : ""
+                }`}
+                onClick={() => handleItemClick(index)}
               >
-                <div className="flex items-center justify-start gap-10 pl-3">
-                  <div className="w-[150px] flex item-center justify-start gap-4 text-start">
-                    <p style={{ color: darkMode ? "black" : "white" }}>
-                      {el.fromEmail}
-                    </p>
-                    <p className="text-[#4f4f51]">Mar7</p>
+                <div key={index} onClick={() => handleClick(el.threadId)}>
+                  <div className="flex items-center justify-start gap-10 pl-3 ">
+                    <div className="w-[150px] flex item-center justify-start gap-4 text-start">
+                      <p style={{ color: darkMode ? "black" : "white" }}>
+                        {el.fromEmail}
+                      </p>
+                      <p className="text-[#4f4f51]">Mar7</p>
+                    </div>
                   </div>
-                </div>
-                <div className="text-start gap-5 pl-3">
-                  <p style={{ color: darkMode ? "black" : "#B9B9B9" }}>
-                    {el.fromName}
-                  </p>
-                </div>
-                <div className="flex items-center justify-around gap-5 mb-3 mt-3">
-                  <div>
-                    <p
-                      className=" rounded-full bg-[#23272C] w-[100px] font-[600]"
-                      style={{
-                        color: el.isRead ? "green" : "inherit",
-                        background: darkMode ? "#bec7d1" : "#23272C",
-                      }}
-                    >
-                      {el.isRead ? "Intrested" : "Pending"}
+                  <div className="text-start gap-5 pl-3">
+                    <p style={{ color: darkMode ? "black" : "#B9B9B9" }}>
+                      {el.fromName}
                     </p>
                   </div>
-                  <div>
-                    <p
-                      style={{
-                        color: darkMode ? "black" : "#B9B9B9",
-                        background: darkMode ? "#bec7d1" : "#23272C",
-                      }}
-                      className="pr-2 pl-2 rounded-full"
-                    >
-                      campigen Name
-                    </p>
+                  <div className="flex items-center justify-around gap-5 mb-3 mt-3">
+                    <div>
+                      <p
+                        className=" rounded-full bg-[#23272C] w-[100px] font-[600]"
+                        style={{
+                          color: el.isRead ? "green" : "inherit",
+                          background: darkMode ? "#bec7d1" : "#23272C",
+                        }}
+                      >
+                        {el.isRead ? "Intrested" : "Pending"}
+                      </p>
+                    </div>
+                    <div>
+                      <p
+                        style={{
+                          color: darkMode ? "black" : "#B9B9B9",
+                          background: darkMode ? "#bec7d1" : "#23272C",
+                        }}
+                        className="pr-2 pl-2 rounded-full"
+                      >
+                        campigen Name
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

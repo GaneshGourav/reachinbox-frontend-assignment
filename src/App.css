@@ -25,23 +25,24 @@
 .btn {
   background: linear-gradient(to left, #0000ff 9%, #3399ff 100%);
 }
-.index-page-height{
+.index-page-height {
   height: calc(100vh - 70px);
- 
- 
 }
 .right-side::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge, and Firefox */
 .right-side {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .vertical-line {
   border: none;
-  background-color: #23272C; /* Adjust color as needed */
-  width: 2px; /* Adjust width as needed */
-  height: 30px; /* Adjust height as needed */
+  background-color: #23272c;
+  width: 2px;
+  height: 30px;
+}
+
+.selected {
+  border-left: 1px solid #5c7cfa;
 }

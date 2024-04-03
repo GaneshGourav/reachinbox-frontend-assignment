@@ -45,7 +45,6 @@ const Sidebar = () => {
             <img src={send} alt="send-logo" />
             <img src={menu} alt="menu-logo" />
             <Link to="/onebox">
-              {/* <img src={emailStore} alt="email-store-logo" /> */}
               <span className="bg-white">
                 <FaInbox className="text-[#a2a2ac] text-[20px]" />
               </span>
