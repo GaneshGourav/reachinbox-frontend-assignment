@@ -1,16 +1,19 @@
 import { useSelector } from "react-redux";
 import "../App.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
 import { IoMdFlash } from "react-icons/io";
 import { SlActionUndo } from "react-icons/sl";
 import AlertBox from "../Components/alertBox";
+import { themeContext } from "../context";
 
 const ThreadEmail = () => {
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
   const [open, setOpen] = useState(false);
   const [reply, setreply] = useState(false);
-  const [alret,setAlert] = useState(false);
-  const[ThreadId,setThreadId] = useState(null)
+  const [alret, setAlert] = useState(false);
+  const [ThreadId, setThreadId] = useState(null);
   const OpenEditor = () => {
     setOpen(!open);
     setreply(!reply);
@@ -26,9 +29,9 @@ const ThreadEmail = () => {
     setOpen(false);
   };
   const handleDelet = (el) => {
-    setThreadId(el.threadId)
-    console.log(el.threadId, "Delete");
-    setAlert(!alret)
+    setThreadId(el.threadId);
+
+    setAlert(!alret);
   };
   const Tdata = useSelector((store) => store.reducer.threadData);
   return (
@@ -68,15 +71,15 @@ const ThreadEmail = () => {
                 </div>
                 <div className={`border px-0 w-full `}></div>
                 <p className="m-1 px-5 py-1 text-gray-500 text-start">
-                  To : <span className={``}>jeanne@icloud.com</span>
+                  To : <span>jeanne@icloud.com</span>
                 </p>
                 <div className="border px-0 w-full "></div>
                 <p className="m-1 px-5 py-1 text-gray-500 text-start">
-                  From : <span className={``}>peter@reachinbox.com</span>
+                  From : <span>peter@reachinbox.com</span>
                 </p>
                 <div className={`border px-0 w-full `}></div>
                 <p className="m-1 px-5 py-1 text-gray-500 text-start">
-                  Subject : <span className={``}>Warmup Welcome</span>
+                  Subject : <span>Warmup Welcome</span>
                 </p>
                 <div className={`border px-0 w-full `}></div>
                 <p className="text-gray-500 px-6 pt-4 text-start">Hi jeanne,</p>
@@ -104,7 +107,12 @@ const ThreadEmail = () => {
         </div>
         <nav className=" flex justify-between pr-3 pl-3 border border-[#23272C] border-b-2 text-white pb-3 pt-2">
           <div className="text-white text-start">
-            <p>orland</p>
+            <p
+              style={{ color: darkMode ? "black" : "white" }}
+              className="font-[600]"
+            >
+              orland
+            </p>
             <p className="text-[#4f4f51]">orlando@gmail.com</p>
           </div>
 
@@ -137,7 +145,7 @@ const ThreadEmail = () => {
           {Tdata.map((el) => (
             <div className="text-[#AEAEAE]">
               <div>
-                <div className="w-full border border-[#23272C] mt-[30px] mb-[30px] relative">
+                <div className="w-full border border-[#23272C]  mt-[30px] mb-[30px] relative">
                   <div className=" left-[40%]  w-[200px] bg-[#23272C] absolute -top-[12px] text-white ">
                     <p>{el.createdAt}</p>
                   </div>
@@ -149,13 +157,17 @@ const ThreadEmail = () => {
                     <p className="text-white font-[700]">{el.subject}</p>
                     <div
                       className="text-white  pr-2 pl-2 pt-1 pb-1 rounded-md bg-[#23272C] cursor-pointer"
+                      style={{ background: darkMode ? "#77797a" : "#23272C" }}
                       onClick={() => handleDelet(el)}
                     >
                       Delete
                     </div>
                   </div>
 
-                  <div onClick={handleReply}>
+                  <div
+                    onClick={handleReply}
+                    style={{ color: darkMode ? "black" : "#AEAEAE" }}
+                  >
                     <p> from : {el.fromEmail}</p>
                     <p> to : {el.toEmail}</p>
                     <p>{el.fromName}</p>
@@ -165,7 +177,9 @@ const ThreadEmail = () => {
               </div>
             </div>
           ))}
-{alret && <AlertBox setAlert={setAlert} alret={alret} ThreadId={ThreadId} />}
+          {alret && (
+            <AlertBox setAlert={setAlert} alret={alret} ThreadId={ThreadId} />
+          )}
         </div>
       </section>
     </>

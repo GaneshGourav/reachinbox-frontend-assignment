@@ -43,27 +43,27 @@ export const fetchThread = (id, token) => (dispatch) => {
     })
     .catch((err) => {
       dispatch({ type: THREADIDFAIL });
-      console.log(err);
     });
 };
 
+export const DeleteThread = (thread_id, token) => (dispatch) => {
+  dispatch({ type: DELETETHREAD_REQ });
 
-export const DeleteThread = (thread_id,token)=>(dispatch)=>{
-  dispatch({type:DELETETHREAD_REQ})
-
-  return axios.delete(`https://hiring.reachinbox.xyz/api/v1/onebox/messages/${thread_id}`,{
-
-  headers: {
-    Authorization: `Bearer ${token}`,
-    "Content-Type": "application/json",
-  },
-  })
-  .then((res)=>{
-    dispatch({type:DELETETHREAD_SUCCESS})
-    alert(res.data.message
-      )
-  }).catch((err)=>{
-    dispatch({type:DELETETHREAD_FAIL})
-    console.log(err,"Errordele")
-  })
-}
+  return axios
+    .delete(
+      `https://hiring.reachinbox.xyz/api/v1/onebox/messages/${thread_id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((res) => {
+      dispatch({ type: DELETETHREAD_SUCCESS });
+      alert(res.data.message);
+    })
+    .catch((err) => {
+      dispatch({ type: DELETETHREAD_FAIL });
+    });
+};

@@ -93,83 +93,84 @@ const LeadDetails = () => {
             </p>
           </div>
 
-        
-        <div className="flex flex-col  " style={{ color: darkMode ? "#4f4f51" : "white" }}>
-          <div className="flex">
-            <div className="flex flex-col items-center justify-center">
-              <div
-                className="w-12 h-12   rounded-full flex items-center justify-center"
-                style={{ border: darkMode ? "1px solid #4f4f51" : " 1px solid white" }}
-              >
-                <MdOutlineEmail size={20} />
+          <div
+            className="flex flex-col  "
+            style={{ color: darkMode ? "#4f4f51" : "white" }}
+          >
+            <div className="flex">
+              <div className="flex flex-col items-center justify-center">
+                <div
+                  className="w-12 h-12   rounded-full flex items-center justify-center"
+                  style={{
+                    border: darkMode ? "1px solid #4f4f51" : " 1px solid white",
+                  }}
+                >
+                  <MdOutlineEmail size={20} />
+                </div>
+                <div className="h-14 w-1 flex "></div>
               </div>
-              <div className="h-14 w-1 flex "></div>
+
+              <p className="ml-3  font-xl">
+                Step 1: Email <br />
+                <span className="flex ">
+                  {" "}
+                  <IoIosSend className="m-2 font-light" /> Send 3rd, Feb
+                </span>
+              </p>
             </div>
-
-            <p className="ml-3  font-xl">
-              Step 1: Email <br />
-              <span className="flex ">
-                {" "}
-                <IoIosSend className="m-2 font-light" /> Send 3rd, Feb
-              </span>
-            </p>
           </div>
-        </div>
 
-
-
-
-
-
-
-
-          <div className="flex flex-col " style={{ color: darkMode ? "#4f4f51" : "white" }}>
-          <div className="flex">
-            <div className="flex flex-col items-center justify-center">
-              <div
-                className="w-12 h-12  rounded-full flex items-center justify-center"
-                style={{ border: darkMode ? "1px solid #4f4f51" : " 1px solid white" }}
-              >
-                <MdOutlineEmail size={20} />
+          <div
+            className="flex flex-col "
+            style={{ color: darkMode ? "#4f4f51" : "white" }}
+          >
+            <div className="flex">
+              <div className="flex flex-col items-center justify-center">
+                <div
+                  className="w-12 h-12  rounded-full flex items-center justify-center"
+                  style={{
+                    border: darkMode ? "1px solid #4f4f51" : " 1px solid white",
+                  }}
+                >
+                  <MdOutlineEmail size={20} />
+                </div>
+                <div className="h-14 w-1 flex "></div>
               </div>
-              <div className="h-14 w-1 flex "></div>
+              <p className="ml-3  font-xl">
+                Step 2: Email <br />
+                <span className="flex">
+                  {" "}
+                  <LuMailOpen className="m-2 text-yellow-300" /> Open 5th, Feb
+                </span>
+              </p>
             </div>
-            <p className="ml-3  font-xl">
-              Step 2: Email <br />
-              <span className="flex">
-                {" "}
-                <LuMailOpen className="m-2 text-yellow-300" /> Open 5th, Feb
-              </span>
-            </p>
           </div>
-        </div>
 
-        
-        <div className="flex flex-col " style={{ color: darkMode ? "#4f4f51" : "white" }}>
-          <div className="flex">
-            <div className="flex flex-col items-center justify-center">
-              <div
-                className="w-12 h-12   rounded-full flex items-center justify-center"
-                style={{ border: darkMode ? "1px solid #4f4f51" : " 1px solid white" }}
-              >
-                <MdOutlineEmail size={20} />
+          <div
+            className="flex flex-col "
+            style={{ color: darkMode ? "#4f4f51" : "white" }}
+          >
+            <div className="flex">
+              <div className="flex flex-col items-center justify-center">
+                <div
+                  className="w-12 h-12   rounded-full flex items-center justify-center"
+                  style={{
+                    border: darkMode ? "1px solid #4f4f51" : " 1px solid white",
+                  }}
+                >
+                  <MdOutlineEmail size={20} />
+                </div>
+                <div className={`h-14 w-1 flex `}></div>
               </div>
-              <div className={`h-14 w-1 flex `}></div>
+              <p className="ml-3  font-xl">
+                Step 3: Email <br />
+                <span className="flex">
+                  {" "}
+                  <LuMailOpen className="m-2 text-yellow-300" /> Open 5th, Feb
+                </span>
+              </p>
             </div>
-            <p className="ml-3  font-xl">
-              Step 3: Email <br />
-              <span className="flex">
-                {" "}
-                <LuMailOpen className="m-2 text-yellow-300" /> Open 5th, Feb
-              </span>
-            </p>
           </div>
-          </div>
-
-
-
-
-         
         </div>
       </section>
     </>

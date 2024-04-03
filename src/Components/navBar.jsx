@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Toggle from "./toggle";
 import { themeContext } from "../context";
+import { SlArrowDown } from "react-icons/sl";
 
 const Navbar = () => {
   const theme = useContext(themeContext);
@@ -15,7 +16,7 @@ const Navbar = () => {
             </div>
             <div className="flex justify-between  gap-10">
               <Toggle/>
-              <p style={{ color: darkMode ? "#0a0a18" : "white" }}>Tim workSpace</p>
+              <p style={{ color: darkMode ? "#0a0a18" : "white" }} className="flex items-center">Tim workSpace <span><SlArrowDown className="font-[700]" /></span></p>
             </div>
           </nav>
         </header>

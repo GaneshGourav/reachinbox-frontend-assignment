@@ -10,7 +10,7 @@ import {
 const initialState = {
   isAuth: false,
   isLoading: false,
-  loading:false,
+  loading: false,
   data: [],
   threadData: [],
   isError: false,
